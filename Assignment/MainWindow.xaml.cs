@@ -1,4 +1,10 @@
-﻿using System;
+﻿/************************
+ *    Tara McDonagh     *
+ *      S00185883       *
+ *     Assignment 2     *
+ *      26/11/2019      *
+ ***********************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +29,7 @@ namespace Assignment
         List<Activity> allActivities = new List<Activity>();
         List<Activity> selectedActivities = new List<Activity>();
         List<Activity> filteredActivities = new List<Activity>();
-
+        decimal total = 0;
 
         public MainWindow()
         {
@@ -145,6 +151,18 @@ namespace Assignment
             //Null check
             if (selectedActivity != null)
             {
+                foreach (Activity activity in selectedActivities)
+                {
+                    //check if the selected date has same date as any date in the list of already selected activitys 
+                    if (selectedActivity.ActivityDate == activity.ActivityDate)
+                    {
+                        //if the date is the same display an error message and return
+                        MessageBox.Show(selectedActivity.Name + " has same date as " + activity.Name + " cannot add if date is same");
+                        return;
+                    }
+
+                }
+                
                 //Moves item from left box to right box
                 allActivities.Remove(selectedActivity);
                 selectedActivities.Add(selectedActivity);
@@ -155,6 +173,7 @@ namespace Assignment
             {
                 MessageBox.Show("Nothing Selected");
             }
+            total += selectedActivity.Cost;
         }
         //7.	Implement remove functionality to remove an activity from selected activities.
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
@@ -165,12 +184,15 @@ namespace Assignment
             //Null check
             if (selectedActivity != null)
             {
+
+                
                 //Moves item from left box to right box
                 allActivities.Add(selectedActivity);
                 selectedActivities.Remove(selectedActivity);
                 //Refreshing the page
                 RefreshPage();
             }
+            total -= selectedActivity.Cost;
         }
         //Display the description when an activity is selected from the listbox. 
         private void LbxProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -186,7 +208,9 @@ namespace Assignment
                 txtblkDescription.Text = selectedActivity.Description;
                 //Displays the cost of the item
                 string cost = selectedActivity.Cost.ToString();
-                txtbxCost.Text = cost;
+                txtbxCost.Text = string.Format("{0:c}", cost);
+                //A running total of the cost of selected activities should be displayed.
+                txtbxTotalCost.Text = string.Format("{0:c}", total); ;
             
             }
         }
