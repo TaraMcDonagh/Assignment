@@ -43,7 +43,10 @@ namespace Assignment
             Cost = cost;
         }
         //Methods
-        public override str
+        public override string ToString()
+        {
+            return base.ToString();
+        }
         //Implement IComparable to sort by date, utilised by both listboxes. 
         public int CompareTo(Activity other)
         {
