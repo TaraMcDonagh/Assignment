@@ -22,6 +22,8 @@ namespace Assignment
     {
         List<Activity> allActivities = new List<Activity>();
         List<Activity> selectedActivities = new List<Activity>();
+        List<Activity> filteredActivities = new List<Activity>();
+
 
         public MainWindow()
         {
@@ -30,6 +32,7 @@ namespace Assignment
         //Set an action for when the page is loaded
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             //create some activity objects
             Activity l1 = new Activity()
             {
@@ -121,13 +124,21 @@ namespace Assignment
             allActivities.Add(a1);
             allActivities.Add(a2);
             allActivities.Add(a3);
+            allActivities.Sort();
+            allActivities.Reverse();
 
             //Displaying them in the listbox
             lbxProducts.ItemsSource = allActivities;
         }
+        /*Implement add functionality to move an activity to selected activities.
+        This should remove an activity from all activities and display it in the 
+        selected activities listbox.If nothing is selected clicking on the add button should 
+        display a message that nothing has been selected.If there is a date conflict an 
+        appropriate message should be displayed.*/
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            //Display these activities in the Listbox to the left of the screen 
             //Figuring out which activity was selected.
             Activity selectedActivity = lbxProducts.SelectedItem as Activity;
 
@@ -140,8 +151,12 @@ namespace Assignment
                 //refreshing the box
                 RefreshPage();
             }
+            else
+            {
+                MessageBox.Show("Nothing Selected");
+            }
         }
-
+        //7.	Implement remove functionality to remove an activity from selected activities.
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
             //Figuring out which activity was selected.
@@ -157,6 +172,7 @@ namespace Assignment
                 RefreshPage();
             }
         }
+        //Display the description when an activity is selected from the listbox. 
         private void LbxProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Figuring out which activity was selected.
@@ -184,7 +200,60 @@ namespace Assignment
             lbxCart.ItemsSource = null;
             lbxCart.ItemsSource = selectedActivities;
         }
+        /*Implement filter functionality to filter activities in the All Activities listbox.
+        If nothing has been selected to remove an appropriate message should be displayed.*/
+        private void RadioButton_All(object sender, RoutedEventArgs e)
+        {
+            filteredActivities.Clear();
+            if (rb_All.IsChecked == true)
+            {
 
+                RefreshPage();
+            }
+            else if (rb_Land.IsChecked == true)
+            {
+                foreach (Activity activity in allActivities)
+                {
+                    if (activity.TypeOfActivity == ActivityType.Land)
+                    {
+                        filteredActivities.Add(activity);
+                        lbxProducts.ItemsSource = null;
+                        lbxProducts.ItemsSource = filteredActivities;
+
+                    }
+                }
+            }
+            else if (rb_Water.IsChecked == true)
+            {
+                foreach (Activity activity in allActivities)
+                {
+                    if (activity.TypeOfActivity == ActivityType.Water)
+                    {
+                        filteredActivities.Add(activity);
+                        lbxProducts.ItemsSource = null;
+                        lbxProducts.ItemsSource = filteredActivities;
+                    }
+                }
+            }
+            else if (rb_Air.IsChecked == true)
+            {
+                foreach (Activity activity in allActivities)
+                {
+                    if (activity.TypeOfActivity == ActivityType.Air)
+                    {
+                        filteredActivities.Add(activity);
+                        lbxProducts.ItemsSource = null;
+                        lbxProducts.ItemsSource = filteredActivities;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nothing has been selected");
+            }
+
+
+        }
 
     }
 }

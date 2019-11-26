@@ -9,10 +9,10 @@
     <Grid>
         <Button x:Name="btnAdd" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="373,143,0,0" VerticalAlignment="Top" Width="75" Click="BtnAdd_Click"/>
         <Button x:Name="btnRemove" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="373,199,0,0" VerticalAlignment="Top" Width="75" Click="BtnRemove_Click"/>
-        <RadioButton Content="All" HorizontalAlignment="Left" Margin="28,98,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Land" HorizontalAlignment="Left" Margin="28,127,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Water" HorizontalAlignment="Left" Margin="28,158,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.216,0.318"/>
-        <RadioButton Content="Air" HorizontalAlignment="Left" Margin="28,185,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rb_All" Content="All" HorizontalAlignment="Left" Margin="28,98,0,0" VerticalAlignment="Top" Click="RadioButton_All"/>
+        <RadioButton x:Name="rb_Land" Content="Land" HorizontalAlignment="Left" Margin="28,127,0,0" VerticalAlignment="Top" Click="RadioButton_All" />
+        <RadioButton x:Name="rb_Water" Content="Water" HorizontalAlignment="Left" Margin="28,158,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.216,0.318" Click="RadioButton_All" />
+        <RadioButton x:Name="rb_Air" Content="Air" HorizontalAlignment="Left" Margin="28,185,0,0" VerticalAlignment="Top" Click="RadioButton_All"/>
         <ListBox x:Name="lbxProducts" HorizontalAlignment="Left" Height="209" Margin="95,82,0,0" VerticalAlignment="Top" Width="227" SelectionChanged="LbxProducts_SelectionChanged"/>
         <ListBox x:Name="lbxCart" HorizontalAlignment="Left" Height="209" Margin="501,82,0,0" VerticalAlignment="Top" Width="227"/>
         <Label Content="Activity Planner" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Height="39" Width="197" FontSize="20" FontWeight="Bold" Foreground="#FF809FE2"/>
@@ -23,7 +23,7 @@
         <TextBox x:Name="txtbxCost" HorizontalAlignment="Left" Height="23" Margin="467,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="95,54,0,0" TextWrapping="Wrap" Text="All Activities" VerticalAlignment="Top" Width="77" BorderBrush="White"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="501,54,0,0" TextWrapping="Wrap" Text="Selected Activities" VerticalAlignment="Top" Width="120" BorderBrush="White"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="411,357,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Width="37" TextChanged="TextBox_TextChanged" BorderBrush="#FFF7F7F7"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="411,357,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Width="37" BorderBrush="#FFF7F7F7"/>
 
     </Grid>
 </Window>
