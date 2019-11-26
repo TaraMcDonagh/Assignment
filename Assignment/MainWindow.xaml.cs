@@ -20,6 +20,7 @@ namespace Assignment
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Activity> allActivities = new List<Activity>();
         public MainWindow()
         {
             InitializeComponent();
@@ -108,8 +109,19 @@ namespace Assignment
                 TypeOfActivity = ActivityType.Air,
                 Cost = 200m
             };
-            //Displaying them in the listbox
+            //adding the activities to the list created above
+            allActivities.Add(l1);
+            allActivities.Add(l2);
+            allActivities.Add(l3);
+            allActivities.Add(w1);
+            allActivities.Add(w2);
+            allActivities.Add(w3);
+            allActivities.Add(a1);
+            allActivities.Add(a2);
+            allActivities.Add(a3);
 
+            //Displaying them in the listbox
+            lbxProducts.ItemsSource = allActivities;
         }
     }
 }

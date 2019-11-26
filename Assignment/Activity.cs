@@ -22,7 +22,7 @@ namespace Assignment
         public DateTime ActivityDate { get; set; }
 
         public decimal Cost { get; set; }
-        public ActivityType Type { get; set; }
+        public ActivityType TypeOfActivity { get; set; }
 
         public string Description
         {
@@ -39,7 +39,7 @@ namespace Assignment
             Name = name;
             Description = description;
             ActivityDate = date;
-            Type = type;
+            TypeOfActivity = type;
             Cost = cost;
         }
         //Methods

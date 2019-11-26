@@ -15,7 +15,7 @@
         <RadioButton Content="Air" HorizontalAlignment="Left" Margin="28,185,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lbxProducts" HorizontalAlignment="Left" Height="209" Margin="95,82,0,0" VerticalAlignment="Top" Width="227"/>
         <ListBox x:Name="lbxCart" HorizontalAlignment="Left" Height="209" Margin="501,82,0,0" VerticalAlignment="Top" Width="227"/>
-        <Label Content="Activity Planner" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Height="39" Width="197" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Activity Planner" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Height="39" Width="197" FontSize="20" FontWeight="Bold" Foreground="#FF809FE2"/>
 
     </Grid>
 </Window>
