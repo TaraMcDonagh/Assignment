@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <Button x:Name="btnAdd" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="373,143,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnAdd" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="373,143,0,0" VerticalAlignment="Top" Width="75" Click="BtnAdd_Click"/>
         <Button x:Name="btnRemove" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="373,199,0,0" VerticalAlignment="Top" Width="75"/>
         <RadioButton Content="All" HorizontalAlignment="Left" Margin="28,98,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="Land" HorizontalAlignment="Left" Margin="28,127,0,0" VerticalAlignment="Top"/>
@@ -16,6 +16,13 @@
         <ListBox x:Name="lbxProducts" HorizontalAlignment="Left" Height="209" Margin="95,82,0,0" VerticalAlignment="Top" Width="227"/>
         <ListBox x:Name="lbxCart" HorizontalAlignment="Left" Height="209" Margin="501,82,0,0" VerticalAlignment="Top" Width="227"/>
         <Label Content="Activity Planner" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Height="39" Width="197" FontSize="20" FontWeight="Bold" Foreground="#FF809FE2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="95,321,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtblkDescription" HorizontalAlignment="Left" Margin="95,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="316"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="501,26,0,0" TextWrapping="Wrap" Text="Total Cost" VerticalAlignment="Top" Width="68" BorderBrush="White"/>
+        <TextBox x:Name="txtbxTotalCost" HorizontalAlignment="Left" Height="23" Margin="637,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White"/>
+        <TextBox x:Name="txtbxCost" HorizontalAlignment="Left" Height="23" Margin="427,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="White"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="95,54,0,0" TextWrapping="Wrap" Text="All Activities" VerticalAlignment="Top" Width="77" BorderBrush="White"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="501,54,0,0" TextWrapping="Wrap" Text="Selected Activities" VerticalAlignment="Top" Width="120" BorderBrush="White"/>
 
     </Grid>
 </Window>

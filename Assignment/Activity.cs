@@ -45,7 +45,7 @@ namespace Assignment
         //Methods
         public override string ToString()
         {
-            return base.ToString();
+            return $"{Name} - {ActivityDate.ToShortDateString()}";
         }
         //Implement IComparable to sort by date, utilised by both listboxes. 
         public int CompareTo(Activity other)

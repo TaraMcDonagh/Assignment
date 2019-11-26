@@ -21,6 +21,8 @@ namespace Assignment
     public partial class MainWindow : Window
     {
         List<Activity> allActivities = new List<Activity>();
+        List<Activity> selectedActivities = new List<Activity>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -122,6 +124,28 @@ namespace Assignment
 
             //Displaying them in the listbox
             lbxProducts.ItemsSource = allActivities;
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //Figuring out which activity was selected.
+            Activity selectedActivity = lbxProducts.SelectedItem as Activity;
+
+            //Null check
+            if (selectedActivity != null)
+            {
+                //Moves item from left box to right box
+                allActivities.Remove(selectedActivity);
+                selectedActivities.Add(selectedActivity);
+                //refreshing the box
+                lbxProducts.ItemsSource = null;
+                lbxProducts.ItemsSource = allActivities;
+
+            }
+
+
+
+
         }
     }
 }
