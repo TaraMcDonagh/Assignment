@@ -138,14 +138,53 @@ namespace Assignment
                 allActivities.Remove(selectedActivity);
                 selectedActivities.Add(selectedActivity);
                 //refreshing the box
-                lbxProducts.ItemsSource = null;
-                lbxProducts.ItemsSource = allActivities;
-
+                RefreshPage();
             }
-
-
-
-
         }
+
+        private void BtnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            //Figuring out which activity was selected.
+            Activity selectedActivity = lbxCart.SelectedItem as Activity;
+
+            //Null check
+            if (selectedActivity != null)
+            {
+                //Moves item from left box to right box
+                allActivities.Add(selectedActivity);
+                selectedActivities.Remove(selectedActivity);
+                //Refreshing the page
+                RefreshPage();
+            }
+        }
+        private void LbxProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Figuring out which activity was selected.
+            Activity selectedActivity = lbxProducts.SelectedItem as Activity;
+
+            //Null check
+            if (selectedActivity != null)
+            {
+
+                //Adds the required description the the textbox underneath.
+                txtblkDescription.Text = selectedActivity.Description;
+                //Displays the cost of the item
+                string cost = selectedActivity.Cost.ToString();
+                txtbxCost.Text = cost;
+            
+            }
+        }
+
+        private void RefreshPage()
+        {
+            //refreshing the box
+            lbxProducts.ItemsSource = null;
+            lbxProducts.ItemsSource = allActivities;
+            //Adding to the right listbox
+            lbxCart.ItemsSource = null;
+            lbxCart.ItemsSource = selectedActivities;
+        }
+
+
     }
 }
